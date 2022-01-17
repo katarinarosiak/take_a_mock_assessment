@@ -36,15 +36,24 @@ document.addEventListener('DOMContentLoaded', () => {
             let data = get20randomQuestions(getAllQuestions(results)); 
 
             let divQuestion = document.querySelector('#questions'); 
+
             let ol = document.createElement('ol'); 
+            ol.classList.add("list-group"); 
+    
 
             data.forEach(question => {
                 let li = document.createElement('li'); 
                 li.textContent = question; 
+                li.classList.add("list-group-item");
                 ol.appendChild(li); 
             });
             
-            divQuestion.appendChild(ol); 
+            if (divQuestion.children.length) {
+                divQuestion.replaceChild(ol, divQuestion.firstElementChild);
+            } else {
+                divQuestion.appendChild(ol); 
+            }
+ 
 
 
 
