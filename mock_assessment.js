@@ -24,9 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     button.addEventListener('click', (event) => {
         event.preventDefault();
- 
+        
+        button.innerText = 'Regenerate the list of question'
         let request = new XMLHttpRequest(); 
-
         request.open('GET', 'https://mock-assessment.herokuapp.com/');
 
         request.addEventListener('load', event => {
